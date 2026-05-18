@@ -1,0 +1,2 @@
+UPDATE auth.users SET email_confirmed_at = now() WHERE email = 'gianghuy752003@gmail.com' AND email_confirmed_at IS NULL;
+INSERT INTO public.admin_users (user_id) SELECT id FROM auth.users WHERE email = 'gianghuy752003@gmail.com' ON CONFLICT DO NOTHING;
